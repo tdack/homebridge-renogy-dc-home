@@ -1,7 +1,7 @@
 {
   "name": "renogy-homebridge",
   "version": "1.2.1",
-  "private": true,
+  "private": false,
   "displayName": "Renogy DC Home",
   "type": "module",
   "description": "Homebridge bridge for Renogy DC Home systems.",
