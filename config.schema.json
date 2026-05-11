@@ -1,0 +1,38 @@
+{
+  "pluginAlias": "RenogyHomebridgePlugin",
+  "pluginType": "platform",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "Renogy",
+        "required": true
+      },
+      "accessKey": {
+        "title": "Access Key",
+        "type": "string",
+        "required": true,
+        "pattern": "^ak-[a-zA-Z0-9]+$",
+        "description": "Your Renogy API Access Key. Obtain it from https://platform.renogy.com/apikey"
+      },
+      "secretKey": {
+        "title": "Secret Key",
+        "type": "string",
+        "required": true,
+        "pattern": "^sk-[a-zA-Z0-9]+$",
+        "description": "Your Renogy API Secret Key. Obtain it from https://platform.renogy.com/apikey"
+      }
+    }
+  },
+  "layout": [
+    {
+      "type": "help",
+      "help": "This plugin requires you to provide your Renogy API Access Key and Secret Key. You can obtain these from the Renogy developer portal at https://platform.renogy.com/apikey."
+    },
+    "name",
+    "accessKey",
+    "secretKey"
+  ]
+}
