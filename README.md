@@ -8,6 +8,16 @@ This is a Homebridge plugin for Renogy devices. It allows you to monitor your Re
 2. Install this plugin: `npm install -g renogy-homebridge`
 3. Configure the plugin in your `config.json` file.
 
+## Installation (Docker)
+
+If you are running Homebridge in a Docker container, you can install this plugin by `exec`-ing into the container and running the following command:
+
+```bash
+npm install git+https://github.com/tdack/renogy-homebridge.git
+```
+
+This will install the plugin directly from the GitHub repository.
+
 ## Getting API Keys
 
 To use this plugin, you will need to get an Access Key and a Secret Key from the Renogy platform. You can get your keys by visiting [https://platform.renogy.com/apikey/](https://platform.renogy.com/apikey/).
