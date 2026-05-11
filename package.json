@@ -1,7 +1,27 @@
 {
   "name": "renogy-homebridge",
   "version": "1.2.0",
+  "private": true,
+  "displayName": "Renogy DC Home",
+  "type": "module",
   "description": "Homebridge bridge for Renogy DC Home systems.",
+  "authors": [
+    {
+      "name": "Troy Dack",
+      "email": "troy@dack.com.au"
+    }
+  ],
+  "homepage": "https://github.com/tdack/renogy-homebridge#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tdack/renogy-homebridge.git"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "renogy",
+    "solar",
+    "battery"
+  ],
   "main": "dist/main.js",
   "files": [
     "dist",
@@ -18,17 +38,5 @@
     "axios": "^1.6.8",
     "jest": "29.7.0"
   },
-  "devDependencies": {
-    "typescript": "^5.4.5",
-    "@types/node": "^20.12.12",
-    "@types/jest": "^29.5.12"
-  },
-  "keywords": [
-    "homebridge",
-    "renogy",
-    "solar",
-    "battery"
-  ],
-  "author": "Agent",
-  "license": "ISC"
+  "license": "Apache-2.0"
 }
