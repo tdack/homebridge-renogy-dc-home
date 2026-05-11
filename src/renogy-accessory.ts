@@ -1,5 +1,5 @@
 import { Service, PlatformAccessory, CharacteristicValue } from 'homebridge';
-import { RenogyHomebridgePlatform } from './index';
+import { RenogyHomebridgePlatform } from './index.js';
 
 export class RenogyAccessory {
   private service: Service;

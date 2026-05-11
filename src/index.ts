@@ -1,11 +1,11 @@
 import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, Service, Characteristic } from 'homebridge';
-import { RenogyService } from './renogy-service';
-import { PLATFORM_NAME, PLUGIN_IDENTIFIER } from './settings';
-import { RenogyAccessory } from './renogy-accessory';
+import { RenogyService } from './renogy-service.js';
+import { PLATFORM_NAME, PLUGIN_IDENTIFIER } from './settings.js';
+import { RenogyAccessory } from './renogy-accessory.js';
 
 export class RenogyHomebridgePlatform implements DynamicPlatformPlugin {
-  public readonly Service: typeof Service = this.api.hap.Service;
-  public readonly Characteristic: typeof Characteristic = this.api.hap.Characteristic;
+  public readonly Service: typeof Service;
+  public readonly Characteristic: typeof Characteristic;
   public readonly accessories: PlatformAccessory[] = [];
 
   constructor(
@@ -13,6 +13,9 @@ export class RenogyHomebridgePlatform implements DynamicPlatformPlugin {
     public readonly config: PlatformConfig,
     public readonly api: API,
   ) {
+    this.Service = this.api.hap.Service;
+    this.Characteristic = this.api.hap.Characteristic;
+    
     this.log.debug('Finished initializing platform:', this.config.name);
     this.api.on('didFinishLaunching', () => {
       log.debug('Executed didFinishLaunching callback');

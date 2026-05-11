@@ -1,7 +1,7 @@
 import { API } from 'homebridge';
-import { RenogyHomebridgePlatform } from './index';
-import { PLATFORM_NAME } from './settings';
+import { RenogyHomebridgePlatform } from './index.js';
+import { PLATFORM_NAME } from './settings.js';
 
-export = (api: API) => {
+export default (api: API) => {
   api.registerPlatform(PLATFORM_NAME, RenogyHomebridgePlatform);
 };
