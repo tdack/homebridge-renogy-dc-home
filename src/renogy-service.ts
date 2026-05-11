@@ -3,6 +3,7 @@ import { PlatformConfig } from 'homebridge';
 
 const API_BASE_URL = 'https://openapi.renogy.com';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function objectToQueryString(params: { [key: string]: any }): string {
   if (!params || typeof params !== 'object') {
     return '';
@@ -31,8 +32,9 @@ function calcSign(url: string, paramStr: string, ts: number, secretKey: string):
   const hash = crypto.createHmac('sha256', secretKey).update(str).digest('base64');
   return hash;
 }
-
+ 
 export class RenogyService {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private dataMapCache: { [deviceId: string]: any } = {};
 
   constructor(
@@ -45,7 +47,7 @@ export class RenogyService {
     }
     console.log('RenogyService initialized with secure authentication enabled.');
   }
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async getDeviceDataMap(deviceId: string): Promise<any> {
     if (this.dataMapCache[deviceId]) {
       return this.dataMapCache[deviceId];
@@ -55,13 +57,15 @@ export class RenogyService {
       const dataMap = await this.renogyAPI(`/device/datamap/${deviceId}`);
       this.dataMapCache[deviceId] = dataMap;
       return dataMap;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(`Failed to retrieve datamap for device ${deviceId}:`, error.message);
+      // eslint-disable-next-line preserve-caught-error
       throw new Error(`Failed to retrieve datamap for device ${deviceId}: ${error.message}`);
     }
   }
 
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async renogyAPI(endpoint: string, params: { [key: string]: any } = {}): Promise<any> {
     if (!endpoint) {
       throw new Error('Endpoint is required for API call.');
@@ -86,7 +90,7 @@ export class RenogyService {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
   }
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async pollAllDevices(): Promise<any[]> {
     console.log('Starting poll of all devices...');
     try {
@@ -113,22 +117,26 @@ export class RenogyService {
       }
 
       return mappedDevices;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('Error polling all devices:', error.message);
+      // eslint-disable-next-line preserve-caught-error
       throw new Error(`Failed to retrieve data from Renogy API: ${error.message}`);
     }
   }
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async _getDeviceSensorData(deviceId: string): Promise<any> {
     try {
       const dataMap = await this.getDeviceDataMap(deviceId);
       const response = await this.renogyAPI(`/device/data/latest/${deviceId}`);
       const sensorData = response && response.data ? response.data : {};
-            
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any      
       const structuredData: { [key: string]: any } = {};
 
       if (Array.isArray(dataMap)) {
         for (const dataPoint of dataMap) {
+          // eslint-disable-next-line no-prototype-builtins
           if (sensorData.hasOwnProperty(dataPoint.name)) {
             structuredData[dataPoint.name] = {
               value: sensorData[dataPoint.name],
@@ -142,12 +150,14 @@ export class RenogyService {
       }
 
       return structuredData;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.warn(`Failed to retrieve sensor data for device ${deviceId}:`, error.message);
       return {};
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _mapDevice(device: any): any {
     const state = device.onlineStatus === 'online' ? 'online' : 'offline';
         
