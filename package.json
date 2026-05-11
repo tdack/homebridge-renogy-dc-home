@@ -1,5 +1,5 @@
 {
-  "name": "renogy-homebridge",
+  "name": "homebridge-renogy-dc-home",
   "version": "1.2.1",
   "private": false,
   "displayName": "Renogy DC Home",
@@ -11,10 +11,10 @@
       "email": "troy@dack.com.au"
     }
   ],
-  "homepage": "https://github.com/tdack/renogy-homebridge#readme",
+  "homepage": "https://github.com/tdack/homebridge-renogy-dc-home#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tdack/renogy-homebridge.git"
+    "url": "https://github.com/tdack/homebridge-renogy-dc-home.git"
   },
   "keywords": [
     "homebridge-plugin",
