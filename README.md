@@ -2,21 +2,11 @@
 
 This is a Homebridge plugin for Renogy devices. It allows you to monitor your Renogy devices in the Apple Home app.
 
+Currently a work in progress. Populates sub-devices from main device (eg: Renogy One Core).
+
 ## Installation
 
-1. Install Homebridge: `npm install -g homebridge`
-2. Install this plugin: `npm install -g renogy-homebridge`
-3. Configure the plugin in your `config.json` file.
-
-## Installation (Docker)
-
-If you are running Homebridge in a Docker container, you can install this plugin by `exec`-ing into the container and running the following command:
-
-```bash
-npm install git+https://github.com/tdack/renogy-homebridge.git
-```
-
-This will install the plugin directly from the GitHub repository.
+Search for `homebridge-renogy-dc-home` in the Homebridge Plugin page.
 
 ## Getting API Keys
 
